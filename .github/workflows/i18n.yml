@@ -1,0 +1,38 @@
+name: Check and Fix Missing Translation Keys
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-translation-keys:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install json-delta
+
+      - name: Run Python script to check and fix missing keys
+        run: |
+          python check_missing_keys.py
+
+      - name: Commit and push changes if necessary
+        run: |
+          if [ "$(git status --porcelain)" != "" ]; then
+            git config user.name "GitHub Action"
+            git config user.email "action@github.com"
+            git add translations/*.json
+            git commit -m "Fix missing translation keys"
+            git push
+          else
+            echo "No missing keys detected."
+          fi
