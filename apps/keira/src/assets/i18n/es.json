@@ -861,5 +861,9 @@
       "SPELL_PRIORITY": "Desconocido. Sólo se usa el valor 50 para algunos hechizos.",
       "REQUIRED_AURA_VISION": "Desconocido. Sólo 16 hechizos usan otro valor como 0. Podría ser usado para efectos visuales."
     }
+  },
+  "SELECTORS": {
+    "ENABLED": "Enabled",
+    "DISABLED": "Disabled"
   }
 }
