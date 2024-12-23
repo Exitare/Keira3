@@ -1,6 +1,9 @@
 name: Check and Fix Missing Translation Keys
 
 on:
+  push:
+    branches:
+      - '**'
   pull_request:
     branches:
       - main
@@ -23,14 +26,14 @@ jobs:
 
       - name: Run Python script to check and fix missing keys
         run: |
-          python check_missing_keys.py
+          python scripts/sync_i18n.py
 
       - name: Commit and push changes if necessary
         run: |
           if [ "$(git status --porcelain)" != "" ]; then
             git config user.name "GitHub Action"
             git config user.email "action@github.com"
-            git add translations/*.json
+            git add apps/keira/src/assets/i18n/*.json
             git commit -m "Fix missing translation keys"
             git push
           else
