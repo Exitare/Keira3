@@ -854,9 +854,5 @@
       "SPELL_PRIORITY": "未知...某些法术的唯一使用的值是50。",
       "REQUIRED_AURA_VISION": "未知...只有16个法术使用，其他均为0，可以用于视觉效果。"
     }
-  },
-  "SELECTORS": {
-    "ENABLED": "Enabled",
-    "DISABLED": "Disabled"
   }
 }

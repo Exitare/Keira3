@@ -258,6 +258,59 @@
       "AURAS": "Eine Liste von durch Leerzeichen getrennten Auren, die auf die Kreatur angewendet werden. Wenn die Kreatur Daten im Spawn-Addon hat, wird dies überschrieben."
     }
   },
+  "ONKILL_REPUTATION": {
+    "IS_TEAM_AWARD1": "Boolean (0 oder 1), ob der Spieler den Ruf auch für das Fraktionsteam erhält oder nicht.",
+    "REW_ON_KILL_REP_VALUE1": "Der Rufwert, den der Spieler durch das Töten der Kreatur erhält (oder verliert, falls negativ).",
+    "IS_TEAM_AWARD2": "Boolean (0 oder 1), ob der Spieler den Ruf auch für das Fraktionsteam erhält oder nicht.",
+    "REW_ON_KILL_REP_VALUE2": "Der Rufwert, den der Spieler durch das Töten der Kreatur erhält (oder verliert, falls negativ).",
+    "TEAM_DEPENDENT_TOOLTIP": "Boolean-Wert. 0 - Gibt Ruf für jeden Spieler aus beiden Feldern (RewOnKillRepFaction1 und RewOnKillRepFaction2); 1 - Gibt Ruf für Allianzspieler von RewOnKillRepFaction1 und für Hordespieler von RewOnKillRepFaction2."
+  },
+  "SPAWN": {
+    "ORIENTATION": "Die Orientierung des Spawnpunkts der Kreatur. (Norden = 0.0; Süden = pi (3.14159))",
+    "EQUIPMENT_ID_TOOLTIP": "1 = Verwendet die Informationen aus der Ausrüstungsvorlage; 0 = Keine Waffen ausgerüstet; -1 = Eine zufällige Ausrüstung aus der Gruppe der Ausrüstungen in creature_equip_template wird ausgewählt.",
+    "SPAWN_DIST_TOOLTIP": "Die maximale Entfernung, die die Kreatur von ihrem Spawnpunkt entfernt spawnen kann. Kontrolliert auch, wie weit sich die Kreatur von ihrem Spawnpunkt entfernen kann, wenn ihr MovementType = 1 ist.",
+    "SCRIPT_NAME": "Der Name des C++-Skripts, das diese Kreatur verwendet, falls vorhanden.",
+    "GUID": "Verknüpft mit creature.guid",
+    "PATH_ID": "Wenn die Kreatur eine Wegpunktbewegung hat, enthält dies die waypoint_data.id für den Pfad, dem die Kreatur folgen soll.",
+    "MOUNT": "Die Modell-ID des Reittiers, das verwendet werden soll, um die Kreatur als reitend erscheinen zu lassen. Der hier angegebene Wert überschreibt den Wert für das Kreaturen-Einheitsfeld UNIT_FIELD_MOUNTDISPLAYID.",
+    "VISIBILITY_DISTANCE_TYPE": "Normal = 0, 100,0f (Standard-Sichtweite, 100 Yards auf Kontinenten); Tiny = 1, 25,0f; Small = 2, 50,0f; Large = 3, 200,0f; Gigantic = 4, 400,0f; Infinite = 5 (Größe der Gitter maximale Entfernung für sichtbare Objekte)",
+    "AURAS": "Eine Liste von durch Leerzeichen getrennten Auren, die auf die Kreatur angewendet werden.",
+    "COMMENT": "Kommentar"
+  },
+  "TEMPLATE_MOVEMENT": {
+    "GROUND": "0 = Keine; 1 = Laufen; 2 = Schweben",
+    "SWIM": "0 = Keine; 1 = Schwimmen",
+    "FLIGHT": "0 = Keine; 1 = Schwerkraft deaktivieren; 2 = Kann fliegen",
+    "ROOTED": "0 = Keine; 1 = Verwurzelt",
+    "CHASE": "0 = Laufen; 1 = Kann gehen; 2 = Immer gehen",
+    "RANDOM": "0 = Gehen; 1 = Kann laufen; 2 = Immer laufen",
+    "INTERACTION_PAUSE_TIMER": "Zeit (in Millisekunden), während der die Kreatur nach der Interaktion mit dem Spieler nicht bewegt wird."
+  },
+  "TEMPLATE_SPELL": {
+    "INDEX": "Zulässige Werte: 0-7"
+  },
+  "NPC_TRAINER": {
+    "MONEY_COST": "Die Kosten, um den Zauber zu lernen, dargestellt in Kupfer (1 Gold = 100 Silber = 10000 Kupfer).",
+    "REQ_SKILL_LINE": "Die erforderliche Fähigkeit, die der Spieler haben muss, um den Zauber lernen zu können.",
+    "REQ_SKILL_RANK": "Die Fertigkeit in der Fähigkeit aus reqskill, die der Spieler haben muss, um den Zauber zu lernen.",
+    "REQ_LEVEL": "Das Mindestlevel, das der Spieler haben muss, um den Zauber zu lernen."
+  },
+  "NPC_VENDOR": {
+    "SLOT": "Position des Gegenstands im Händlerfenster",
+    "MAXCOUNT": "Die maximale Anzahl von Gegenständen, die der Händler gleichzeitig führt. 0 für unendlich (wenn ein Wert von 1 oder höher gewählt wird, ist auch ein incrtime-Wert erforderlich).",
+    "INCRTIME": "In Kombination mit maxcount, wie oft (in Sekunden) die Händlerliste aktualisiert wird.",
+    "EXTENDED_COST": "Wert stammt aus DBC, und ein Selektor dafür wird später in Keira3 implementiert."
+  },
+  "TEXT": {
+    "GROUP_ID": "Wenn es mehr als einen Eintrag derselben Art gibt (mehr als einen Text, den die Kreatur sagt), wird diese Spalte verwendet, um auszuwählen, ob es sich um eine zufällige Auswahl oder eine geordnete Liste handelt. Wenn eine Kreatur mehr als einen Text hat, der in einer bestimmten Reihenfolge angezeigt werden soll, muss dieser Wert für jeden neuen passenden Eintrag inkrementiert werden (z. B. 0, 1, 2, 3...). Wenn es nur einen Eintrag oder nur eine Gruppe gibt, sollte dieser Wert 0 sein. Wenn es mehrere Textgruppen gibt, bleibt dieser Wert innerhalb der Gruppe gleich, während die ID innerhalb derselben Gruppe inkrementiert wird.",
+    "ID": "Eintrag für jede Gruppe von Texten. Dies ist der eindeutige Identifikator, wenn entry (Kreatur) gleich ist und groupid unverändert ist, muss er inkrementiert werden (z. B. 0, 1, 2, 3...). Ein Kreaturtext wird zufällig aus dieser Liste ausgewählt, basierend auf der groupid, zu der er gehört.",
+    "LANGUAGE": "Wert aus Languages.dbc (+ die Wiki-Tabelle aus der dbc-Datei). Wenn auf 0 gesetzt, wird die aktuelle Standardsprache verwendet.",
+    "PROBABILITY": "Ein Wert von 1-100, der den Prozentsatz angibt, mit dem dieser Text ausgeführt wird.\n\nDer Wert muss >=0 sein. Wenn der Wert die Bedingung nicht erfüllt, schlägt die SQL-Prüfung bei creature_text_chk_1 fehl.",
+    "EMOTE": "Das Emote, das die Kreatur spielt, wenn der Text ausgeführt wird. Der zu verwendende Wert in diesem Feld kann aus der emote.dbc abgerufen werden.",
+    "DURATION": "Zeit in ms, um den Text anzuzeigen. 0 ist Standard und wird vom Kern berechnet.",
+    "SOUND": "Die Sound-Einträge, die diese Kreatur gleichzeitig mit dem Ausführen des Textes abspielt. Sounds befinden sich in SoundEntries.dbc.",
+    "BROADCAST_TEXT_ID": "ID des entsprechenden Textes, der in broadcast_text gefunden wird."
+  },
   "QUEST": {
     "TEMPLATE": {
       "BASE": "Basis",
