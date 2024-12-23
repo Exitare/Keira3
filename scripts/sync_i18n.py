@@ -2,6 +2,7 @@ import os
 import json
 from pathlib import Path
 
+# Get keys from the English file
 def get_keys_from_en(en_file):
     with open(en_file, 'r') as f:
         data = json.load(f)
