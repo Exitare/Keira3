@@ -32,6 +32,7 @@ export class MysqlQueryService extends BaseQueryService {
           console.log(`\n${queryString}`);
           console.log(val);
         }
+        console.log(queryString);
       }),
       map((val) => val?.result),
     ) as Observable<T[]>;

@@ -170,6 +170,14 @@
                       </a>
                     </li>
                     <li>
+                      <a href="#" routerLinkActive="active" [routerLink]="'creature/creature-reference-loot-template'">
+                        {{ 'SIDEBAR.CREATURE.REFERENCE_CREATURE_LOOT' | translate }}
+                        @if (creatureHandlerService.isCreatureLootTemplateUnsaved) {
+                          <keira-unsaved-icon />
+                        }
+                      </a>
+                    </li>
+                    <li>
                       <a href="#" routerLinkActive="active" [routerLink]="'creature/pickpocketing-loot-template'">
                         {{ 'SIDEBAR.CREATURE.PICKPOCKETING_LOOT' | translate }}
                         @if (creatureHandlerService.isPickpocketingLootTemplateUnsaved) {

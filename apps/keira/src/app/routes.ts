@@ -10,6 +10,7 @@ import {
   CreatureLootTemplateComponent,
   CreatureOnkillReputationComponent,
   CreatureQuestitemComponent,
+  CreatureReferenceLootTemplateComponent,
   CreatureSpawnAddonComponent,
   CreatureSpawnComponent,
   CreatureTemplateAddonComponent,
@@ -164,6 +165,11 @@ export const KEIRA_ROUTES: Routes = [
       {
         path: 'creature-loot-template',
         component: CreatureLootTemplateComponent,
+        canActivate: [CreatureHandlerService],
+      },
+      {
+        path: 'creature-reference-loot-template',
+        component: CreatureReferenceLootTemplateComponent,
         canActivate: [CreatureHandlerService],
       },
       {
